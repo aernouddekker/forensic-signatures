@@ -79,7 +79,7 @@ FIGSHARE_DATASETS = {
         'name': 'McEwen 26-qubit cosmic ray data',
         'url': 'https://figshare.com/ndownloader/articles/16673851/versions/1',
         'output_dir': DATA_DIR / 'mcewan',
-        'marker_file': 'MAIN_DATASET_0.csv',  # File that indicates successful extraction
+        'marker_file': 'MAIN_DATASETS/MAIN_DATASET_0.csv',  # File that indicates successful extraction
     },
     'chinese': {
         'article_id': '28815434',
