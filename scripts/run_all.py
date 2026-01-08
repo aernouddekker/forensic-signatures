@@ -55,6 +55,12 @@ try:
 except ImportError:
     HAS_REQUESTS = False
 
+try:
+    import py7zr
+    HAS_PY7ZR = True
+except ImportError:
+    HAS_PY7ZR = False
+
 # =============================================================================
 # Configuration
 # =============================================================================
@@ -154,14 +160,35 @@ def download_figshare_dataset(dataset_key, force=False):
     try:
         with zipfile.ZipFile(zip_path, 'r') as zf:
             zf.extractall(output_dir)
-        print(f"  Extracted successfully")
+        print(f"  Extracted zip successfully")
 
         # Clean up zip file
         zip_path.unlink()
 
     except Exception as e:
-        print(f"  ERROR extracting: {e}")
+        print(f"  ERROR extracting zip: {e}")
         return False
+
+    # Extract any .7z files (McEwan data comes as nested 7z archives)
+    seven_z_files = list(output_dir.glob('*.7z'))
+    if seven_z_files:
+        if not HAS_PY7ZR:
+            print("  ERROR: Found .7z files but py7zr not installed.")
+            print("  Run: pip install py7zr")
+            return False
+
+        print(f"  Found {len(seven_z_files)} .7z archives to extract...")
+        for sz_file in seven_z_files:
+            print(f"    Extracting: {sz_file.name}")
+            try:
+                with py7zr.SevenZipFile(sz_file, mode='r') as archive:
+                    archive.extractall(path=output_dir)
+                # Clean up 7z file after extraction
+                sz_file.unlink()
+            except Exception as e:
+                print(f"    ERROR extracting {sz_file.name}: {e}")
+                return False
+        print(f"  Extracted all .7z archives successfully")
 
     # Verify marker file exists
     if not marker_path.exists():

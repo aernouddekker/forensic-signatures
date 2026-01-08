@@ -25,6 +25,9 @@ diptest==0.10.0  # Hartigan's dip test for unimodality
 gwpy==3.0.13
 gwosc>=0.7.1  # LIGO Open Science Center client
 
+# Archive extraction
+py7zr>=0.20.0  # For extracting McEwan 7z archives from Figshare
+
 # Development/optional
 # statsmodels  # Not strictly required, but useful for additional analyses
 
