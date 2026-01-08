@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Data directories (large, auto-downloaded)
+scripts/bulk_data/
+scripts/data/
+scripts/output/
+
+# Figures (generated)
+figures/
+
+# LaTeX auxiliary files
+latex/*.aux
+latex/*.log
+latex/*.out
+latex/*.toc
+latex/*.bbl
+latex/*.blg
+latex/*.synctex.gz
+latex/*.fdb_latexmk
+latex/*.fls
+
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,35 @@
+# Forensic Signatures - Reproducibility Requirements
+# ==================================================
+#
+# Install with: pip install -r requirements.txt
+#
+# Pinned versions from development environment (December 2025)
+# These exact versions are tested and produce the manuscript results.
+#
+# If you encounter issues with these specific versions, the analysis
+# should still work with reasonably recent versions of these packages.
+
+# Core scientific computing
+numpy==1.26.4
+scipy==1.13.1
+pandas==2.3.3
+
+# Plotting
+matplotlib==3.9.4
+
+# Statistical tests
+diptest==0.10.0  # Hartigan's dip test for unimodality
+
+# LIGO data access (optional - only needed for fresh data fetch)
+# Uncomment if running full pipeline from scratch
+gwpy==3.0.13
+gwosc>=0.7.1  # LIGO Open Science Center client
+
+# Development/optional
+# statsmodels  # Not strictly required, but useful for additional analyses
+
+# Notes on compatibility:
+# - numpy 1.x is required (numpy 2.x may have breaking changes)
+# - scipy 1.10+ required for some statistical functions
+# - matplotlib 3.5+ for improved styling
+# - gwpy 3.0+ for LIGO data access (requires Python 3.9+)
