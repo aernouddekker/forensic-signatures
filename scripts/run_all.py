@@ -333,7 +333,7 @@ PIPELINE_STEPS = [
         'skip_if_cached': False,
         'outputs': ['robustness_sweep/stability_table.json'],
     },
-    # Step 13: Google/McEwan stability diagnostics (evidence strength)
+    # Step 14: Google/McEwan stability diagnostics (evidence strength)
     {
         'name': 'McEwan stability diagnostics',
         'script': 'google_stability_diagnostics.py',
@@ -341,7 +341,7 @@ PIPELINE_STEPS = [
         'skip_if_cached': False,
         'outputs': ['robustness_sweep/stability_diagnostics.json'],
     },
-    # Step 14: McEwan tau statistics
+    # Step 15: McEwan tau statistics
     {
         'name': 'McEwan tau statistics',
         'script': 'mcewan_tau_stats.py',
@@ -349,7 +349,7 @@ PIPELINE_STEPS = [
         'skip_if_cached': False,
         'outputs': ['robustness_sweep/mcewan_tau_stats.json'],
     },
-    # Step 15: Hesitation phase diagram
+    # Step 16: Hesitation phase diagram
     {
         'name': 'Hesitation phase diagram',
         'script': 'hesitation_phase_diagram.py',
